@@ -1,0 +1,79 @@
+# Common configuration.
+AllCops:
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - '.git/**/*'
+    - "db/schema.rb"
+  TargetRubyVersion: 2.5
+
+# Only ever indent once; no arbitrary parameter indentations.
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+# Trailing dot position on method chaining.
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+# No space between hash literal brace and the contents: {a: 3}, not { a: 3 }
+# This is more visually distinct from a block.
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Metrics/LineLength:
+  Max: 100
+  Exclude:
+    - "config/routes.rb"
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/BlockLength:
+  ExcludedMethods: ["describe", "context", "it", "dataset_module"]
+  Exclude:
+    - "Rakefile"
+    - "config/initializers/*.rb"
+    - "db/migrate/*.rb"
+    - "config/routes.rb"
+
+# Add "db" to the list of allowed two-char param names
+Naming/UncommunicativeMethodParamName:
+  AllowedNames: ["io", "id", "to", "by", "on", "in", "at", "db"]
+
+# Multiline blocks may be wrapped in braces only when used in method chaining, otherwise use do..end
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+# Prefer postfix colon on symbol keys in hash, but use hashrockets for all keys if any key is not a
+# symbol.
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+
+# Use comparison operators instead of special-case methods for doing numeric checks.
+Style/NumericPredicate:
+  EnforcedStyle: comparison
+
+# Always prefer interpolated strings.
+Style/PercentQLiterals:
+  EnforcedStyle: upper_case_q
+
+# Use has_key? and has_value? on Hashes (not key? and value?)
+Style/PreferredHashMethods:
+  EnforcedStyle: verbose
+
+# Use double quotes as the default. Use single quotes if you need to escape double quotes or
+# interpolation characters.
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# In an interpolation, use single quoted strings as the default.
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
+
+# Don't use special notation for arrays of symbols.
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+# Don't use special notation for arrays of strings.
+Style/WordArray:
+  EnforcedStyle: brackets
