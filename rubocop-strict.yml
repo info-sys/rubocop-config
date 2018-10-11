@@ -20,45 +20,21 @@ Layout/DotPosition:
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
-# Doubling most of the Rubocop defaults - while they do lead to more Ruby-like code, they're often
-# subjective enough that disabling them on a case-by-case basis becomes common. This defeats the
-# purpose.
-Metrics/AbcSize:
-  Max: 30
-
-Metrics/BlockLength:
-  Max: 50
-  ExcludedMethods: ["describe", "context", "it", "dataset_module"]
-  Exclude:
-    - "Rakefile"
-    - "config/initializers/*.rb"
-    - "db/migrate/*.rb"
-    - "config/routes.rb"
-
-Metrics/ClassLength:
-  Max: 200
-
-Metrics/CyclomaticComplexity:
-  Max: 12
-
 Metrics/LineLength:
   Max: 120
   Exclude:
     - "config/routes.rb"
 
 Metrics/MethodLength:
-  Max: 20
+  Max: 15
 
-Metrics/ModuleLength:
-  Max: 200
-
-# Doubling this one, but >5 parameters is getting pretty up there. If you're going to go with such
-# high parameter counts, please use `keyword arguments` (Google for "ruby keyword arguments").
-Metrics/ParameterLists:
-  Max: 10
-
-Metrics/PerceivedComplexity:
-  Max: 14
+Metrics/BlockLength:
+  ExcludedMethods: ["describe", "context", "it", "dataset_module"]
+  Exclude:
+    - "Rakefile"
+    - "config/initializers/*.rb"
+    - "db/migrate/*.rb"
+    - "config/routes.rb"
 
 # Add "db" to the list of allowed two-char param names
 Naming/UncommunicativeMethodParamName:
